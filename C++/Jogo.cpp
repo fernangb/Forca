@@ -9,18 +9,6 @@ using namespace std;
 
 
 Jogo::Jogo(Jogador j, Palavra p){
-    //jogador(j);
-    //palavra(p,d);
-
-    // jogador.nome = j;
-    // jogador.pontos=0;
-
-    // palavra.nome = p;
-    // palavra.dica = d;
-    // palavra.numLetras = palavra.size();
-    // palavra.numLetrasDiferentes = palavra.calcularLetrasDiferentes();
-    // palavra.dificuldade = palavra.calcularDificuldade();
-
     jogador = j;
     palavra = p;
 
@@ -126,15 +114,16 @@ void Jogo:: desenharForca(unsigned vidas){
 
 void Jogo:: desenharPalavra(){
     bool existe;
+    string palavraEscolhida = palavra.getNome();
 
     for(unsigned i=0; i<palavra.getNumLetras(); i++){
         existe = false;
         for(unsigned j=0; j<letrasCertas.size(); j++)
-            if(palavra.nome[i] == letrasCertas[j])
+            if(palavraEscolhida[i] == letrasCertas[j])
                 existe = true;
         
         if(existe)
-            cout<<" "<<palavra.nome[i];
+            cout<<" "<<palavraEscolhida[i];
         else
             cout<<"* ";
     }
@@ -143,10 +132,11 @@ void Jogo:: desenharPalavra(){
 
 bool Jogo:: verificarJogada(char letra){
     bool existe=false;
+    string palavraEscolhida = palavra.getNome();
 
     for(unsigned i=0; i<palavra.getNumLetras(); i++)
     {
-        if(letra == palavra.nome[i]){
+        if(letra == palavraEscolhida[i]){
             existe = true;
             jogador.setPontos(NUM_PONTOS_ACERTO);
         }
