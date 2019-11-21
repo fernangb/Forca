@@ -8,10 +8,7 @@
 using namespace std;
 
 
-Jogo::Jogo(Jogador j, Palavra p){
-    jogador = j;
-    palavra = p;
-
+Jogo::Jogo(Jogador j, Palavra p): jogador(j.getNome()), palavra(p.getNome(), p.getDica()){
     numVidas = MAX_VIDAS;
 }
 
