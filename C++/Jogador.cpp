@@ -13,7 +13,7 @@ unsigned Jogador:: getPontos(){
 }
 
 void Jogador:: setPontos(int p){
-    pontos+=p;
+    pontos += p;
 }
 
 string Jogador:: getNome(){

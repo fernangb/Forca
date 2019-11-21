@@ -1,3 +1,6 @@
+#ifndef _JOGADOR_
+#define _JOGADOR_
+
 #include <string>
 
 using namespace std;
@@ -12,5 +15,6 @@ class Jogador{
     private:
        unsigned pontos;
        string nome;
-
 };
+
+#endif

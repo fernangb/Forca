@@ -1,3 +1,7 @@
+#ifndef _JOGO_
+#define _JOGO_
+
+
 #include <string>
 #include <vector>
 
@@ -13,6 +17,9 @@ class Jogo{
         //Jogo(string, string, string);
         Jogo(Jogador, Palavra);
         unsigned getNumVidas();
+        unsigned getRodada();
+        void setRodada();
+        void setNumVidas();
 
         void montarTela();
         bool verificarJogada(char);
@@ -20,6 +27,7 @@ class Jogo{
         void desenharPalavra();
         void jogar();
         bool verificarLetraRepetida(char);
+        void calcularPontuacaoFinal();
 
     private:
         unsigned numVidas;
@@ -27,6 +35,9 @@ class Jogo{
         Palavra palavra;
         vector <char> letrasErradas;
         vector <char> letrasCertas;
+        unsigned rodada;
 
 
 };
+
+#endif

@@ -58,10 +58,10 @@ unsigned Palavra:: calcularLetrasDiferentes(){
 string Palavra:: calcularDificuldade(){
     int valor = numLetras*numLetrasDiferentes;
     
-    if(valor<=20)
+    if(valor<=FACIL)
         return "FACIL";
 
-    if(valor<=50)
+    if(valor<=MEDIO)
         return "MEDIO";
 
     return "DIFICIL";

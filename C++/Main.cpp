@@ -8,17 +8,19 @@
 using namespace std;
 
 int main(){
-    Palavra palavra("FLAMENGO", "TIME DE FUTEBOL");
+    Palavra palavra("GRENINJA", "POKEMON");
     Jogador jogador("GABRIEL");
     
     Jogo jogo(jogador, palavra);
     jogo.jogar();
 
-    // cout<<palavra.getNome() << endl;
-    // cout<<palavra.getDica() << endl;
-    // cout<<palavra.getDificuldade() << endl;
-    // cout<<palavra.getNumLetras() << endl;
-    // cout<<palavra.getNumLetrasDiferentes() << endl;
-
     return 0;
 }
+
+/*REVER:
+- PONTUACAO SE PERDER
+- LETRA MINUSCULA
+- SELECIONAR PALAVRA RANDOMICAMENTE
+- TRATAMENTO DE ERRO
+
+*/

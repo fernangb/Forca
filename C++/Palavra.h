@@ -1,6 +1,13 @@
+#ifndef _PALAVRA_
+#define _PALAVRA_
+
 #include <iostream>
 #include <string>
 #include <vector>
+
+#define FACIL 40
+#define MEDIO 80
+#define DIFICIL 100
 
 using namespace std;
 
@@ -27,3 +34,5 @@ class Palavra{
         string dificuldade;
 
 };
+
+#endif
