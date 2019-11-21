@@ -12,6 +12,7 @@ int main(){
     Jogador jogador("GABRIEL");
     
     Jogo jogo(jogador, palavra);
+    jogo.jogar();
 
     // cout<<palavra.getNome() << endl;
     // cout<<palavra.getDica() << endl;
