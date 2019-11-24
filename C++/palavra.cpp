@@ -68,13 +68,13 @@ string Palavra:: calcularDificuldade(){
 }
 
 bool Palavra:: VerificarPalavra(){
-    string alfabeto = {"ABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+    string alfabeto = {"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"};
     bool existeLetra;
     bool existePalavra = true;
 
     for(unsigned i=0; i<numLetras;i++){
         existeLetra = false;
-        for(unsigned j=0; j<26; j++)
+        for(unsigned j=0; j<alfabeto.size(); j++)
             if(nome[i] == alfabeto[j])
                 existeLetra = true;
         existePalavra = existePalavra && existeLetra;

@@ -8,7 +8,7 @@
 #include "Jogador.h"
 #include "Palavra.h"
 
-#define MAX_VIDAS 7
+#define MAX_VIDAS 6
 #define NUM_PONTOS_ACERTO 10
 
 
@@ -20,6 +20,10 @@ class Jogo{
         unsigned getRodada();
         void setRodada();
         void setNumVidas();
+        unsigned getAcertosSeguidos();
+        void setAcertosSeguidos(unsigned);
+        void  setMaxAcertosSeguidos(unsigned);
+        unsigned getMaxAcertosSeguidos();
 
         void montarTela();
         bool verificarJogada(char);
@@ -27,8 +31,8 @@ class Jogo{
         void desenharPalavra();
         void jogar();
         bool verificarLetraRepetida(char);
-        void calcularPontuacaoFinal();
-
+        void calcularPontuacaoFinal(bool);
+        
     private:
         unsigned numVidas;
         Jogador jogador;
@@ -36,6 +40,9 @@ class Jogo{
         vector <char> letrasErradas;
         vector <char> letrasCertas;
         unsigned rodada;
+        unsigned acertosSeguidos;
+        unsigned maxAcertosSeguidos;
+
 
 
 };

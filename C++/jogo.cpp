@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include<cctype>
+#include <cstdlib> 
 
 #include "Jogo.h"
 #include "Jogador.h"
@@ -10,8 +11,11 @@ using namespace std;
 
 
 Jogo::Jogo(Jogador j, Palavra p): jogador(j.getNome()), palavra(p.getNome(), p.getDica()){
+    system("clear");
     numVidas = MAX_VIDAS;
     rodada = 1;
+    acertosSeguidos = 0;
+    maxAcertosSeguidos = 0;
 }
 
 unsigned Jogo:: getNumVidas(){
@@ -29,20 +33,41 @@ void Jogo::setRodada(){
     rodada++;
 }
 
+unsigned Jogo:: getAcertosSeguidos(){
+    return acertosSeguidos;
+}
+
+void Jogo::setAcertosSeguidos(unsigned numero){
+    acertosSeguidos = numero;
+}
+
+unsigned Jogo:: getMaxAcertosSeguidos(){
+    return acertosSeguidos;
+}
+
+void Jogo::setMaxAcertosSeguidos(unsigned numero){
+    if(numero > maxAcertosSeguidos)
+        maxAcertosSeguidos = numero;
+}
+
 void Jogo:: jogar(){
     char letra;
     bool continua = true;
     bool acertei = false;
 
     while (continua){
+ 
         montarTela();
         cout<<"Digite uma letra:" <<endl;
         cin>>letra;
+        letra = toupper(letra);
 
         if(verificarLetraRepetida(letra)){
             montarTela();
             cout<<"Letra Repetida. =(" <<endl;
         }else{ //Se a letra nao for repetida eu posso verificar a jogada
+            system("clear");
+
             if(verificarJogada(letra)){
                 letrasCertas.push_back(letra);
                 cout<<"Boa !! Letra Correta =) "<<endl;
@@ -52,11 +77,6 @@ void Jogo:: jogar(){
                 setNumVidas();
             }
         }
-
-        cout<<palavra.getNumLetrasDiferentes()<<endl;
-        cout<<letrasCertas.size()<<endl;
-        cout<<continua<<endl;
-        cout<<getNumVidas()<<endl;
 
         if(numVidas==0)
             continua=false;
@@ -71,13 +91,20 @@ void Jogo:: jogar(){
     }
 
     //Jogo acabou
+    system("clear");
+    desenharForca(numVidas);
+    desenharPalavra();
+    cout<<"--------------------------------------------------------------------"<<endl;
+
     if(acertei)
         cout<<"Parabens. Voce acertou a palavra =)"<<endl;
-    else
+    else{
         cout<<"Game Over =("<<endl;
+        cout<<"A palavra era "<<palavra.getNome()<<endl;
+    }
     
     
-    calcularPontuacaoFinal();
+    calcularPontuacaoFinal(acertei);
     cout<<"Sua pontuacao final foi: "<<jogador.getPontos()<<endl;
 }
 
@@ -110,7 +137,7 @@ void Jogo:: montarTela(){
 }
 
 void Jogo:: desenharForca(unsigned vidas){
-    cout<<"__________________"<<endl;
+    cout<<"_______________________"<<endl;
 
     //Cabeca
     if(vidas == MAX_VIDAS)
@@ -124,17 +151,17 @@ void Jogo:: desenharForca(unsigned vidas){
     else if(vidas == MAX_VIDAS -2)
         cout<<"|                     | "<<endl;
     else if(vidas == MAX_VIDAS -3)
-        cout<<"|                    (| "<<endl;
+        cout<<"|                    /| "<<endl;
     else
-        cout<<"|                    (|) "<<endl;
+        cout<<"|                    /|\\ "<<endl;
 
     //Pernas
        if(vidas >= MAX_VIDAS-4)
         cout<<"|"<<endl;
     else if(vidas >= MAX_VIDAS-5)
-        cout<<"|                     ] "<<endl;
+        cout<<"|                     / "<<endl;
     else
-        cout<<"|                     ]["<<endl;
+        cout<<"|                     /\\"<<endl;
 
 }
 
@@ -154,9 +181,6 @@ void Jogo:: desenharPalavra(){
             cout<<"* ";
     }
     cout<<endl;
-    cout<<"Dica: "<<palavra.getDica()<<endl;
-    cout<<"Dificuldade: "<<palavra.getDificuldade()<<endl;
-    cout<<"Numero de letras: "<<palavra.getNumLetras()<<endl;
     
     for(unsigned i=0; i<letrasErradas.size();i++)
         cout<<" "<<letrasErradas.at(i);
@@ -165,26 +189,34 @@ void Jogo:: desenharPalavra(){
 
 bool Jogo:: verificarJogada(char letra){
     bool existe=false;
+    unsigned numLetras = 0;
     string palavraEscolhida = palavra.getNome();
 
-    letra = toupper(letra);
-
     for(unsigned i=0; i<palavra.getNumLetras(); i++)
-    {
         if(letra == palavraEscolhida[i]){
             existe = true;
-            jogador.setPontos(NUM_PONTOS_ACERTO);
+            numLetras++;
         }
+
+
+    if(!existe){
+        setAcertosSeguidos(0);
+        jogador.setPontos(jogador.getPontos() - (NUM_PONTOS_ACERTO/2)) ;
+        return false;
     }
 
-    if(existe)
-        return true;
+    setAcertosSeguidos(acertosSeguidos+1);
+    setMaxAcertosSeguidos(acertosSeguidos);
+    jogador.setPontos(jogador.getPontos() + (NUM_PONTOS_ACERTO*acertosSeguidos*numLetras));
 
-    return false;
+
+    return true;
 }
 
-void Jogo:: calcularPontuacaoFinal(){
+void Jogo:: calcularPontuacaoFinal(bool acerto){
     unsigned nivel;
+    unsigned pontuacao;
+    int pontoExtra;    
 
     if(palavra.getDificuldade() == "FACIL")
         nivel = FACIL;
@@ -192,8 +224,21 @@ void Jogo:: calcularPontuacaoFinal(){
         nivel = MEDIO;
     else
         nivel = DIFICIL;
-      
-    unsigned pontuacao = ((jogador.getPontos() - (letrasErradas.size()*10))*nivel/rodada);
-    jogador.setPontos((-1)*jogador.getPontos()); //Zerando a pontuacao final
+
+
+    
+    cout<<"Maior sequencia: "<<maxAcertosSeguidos<<endl;
+
+
+    //Calculando a pontuacao a partir do acerto ou erro
+    //Comparar numero de letras erradas com a rodada
+    //rodada maxima: numLetrasDiferentes + maximo de vidas
+    if(acerto)
+        pontoExtra = (nivel*maxAcertosSeguidos) - (rodada*10); //quando mais rapido acertar, menos pontos serao descontados
+    else
+        pontoExtra = (nivel*maxAcertosSeguidos) - (palavra.getNumLetrasDiferentes() + MAX_VIDAS - rodada)*50; // quanto mais tempo durar, menos pontos serao descontados
+
+    pontuacao = jogador.getPontos() + pontoExtra;
     jogador.setPontos(pontuacao);
 }
+

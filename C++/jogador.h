@@ -8,12 +8,12 @@ using namespace std;
 class Jogador{
     public:
         Jogador(string);
-        unsigned getPontos();
+        int getPontos();
         void setPontos(int);
         string getNome();
 
     private:
-       unsigned pontos;
+       int pontos;
        string nome;
 };
 

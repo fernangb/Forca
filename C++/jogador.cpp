@@ -8,12 +8,12 @@ Jogador::Jogador(string n){
     pontos = 0;
 }
 
-unsigned Jogador:: getPontos(){
+int Jogador:: getPontos(){
     return pontos;
 }
 
 void Jogador:: setPontos(int p){
-    pontos += p;
+    pontos = p;
 }
 
 string Jogador:: getNome(){
