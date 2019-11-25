@@ -1,15 +1,29 @@
 #include "Palavra.h"
 #include <string>
 #include <vector>
+#include <cctype>
 
 using namespace std;
 
 Palavra::Palavra(string p, string d ){
     nome = p;
-    numLetras = p.size();
     dica = d;
+    // for(unsigned i=0; i<p.size();i++)
+    //     nome[i] = toupper(p[i]);
+    // for(unsigned i=0; i<p.size();i++)
+    //     dica[i] = toupper(d[i]);
+
+    numLetras = p.size();
+    // codigo = id;
     numLetrasDiferentes = calcularLetrasDiferentes();
     dificuldade = calcularDificuldade();
+}
+
+int Palavra:: getCodigo(){
+    return codigo;
+}
+void Palavra:: setCodigo(int id){
+    codigo = id;
 }
 
 string Palavra:: getNome(){

@@ -22,8 +22,8 @@ class Palavra{
         unsigned calcularLetrasDiferentes();
         string calcularDificuldade();
         bool VerificarPalavra();
-
-
+        int getCodigo();
+        void setCodigo(int);
 
     private:
         unsigned codigo;

@@ -11,7 +11,7 @@ using namespace std;
 
 
 Jogo::Jogo(Jogador j, Palavra p): jogador(j.getNome()), palavra(p.getNome(), p.getDica()){
-    system("clear");
+    //system("clear");
     numVidas = MAX_VIDAS;
     rodada = 1;
     acertosSeguidos = 0;
@@ -66,7 +66,7 @@ void Jogo:: jogar(){
             montarTela();
             cout<<"Letra Repetida. =(" <<endl;
         }else{ //Se a letra nao for repetida eu posso verificar a jogada
-            system("clear");
+            //system("clear");
 
             if(verificarJogada(letra)){
                 letrasCertas.push_back(letra);
@@ -91,7 +91,7 @@ void Jogo:: jogar(){
     }
 
     //Jogo acabou
-    system("clear");
+    //system("clear");
     desenharForca(numVidas);
     desenharPalavra();
     cout<<"--------------------------------------------------------------------"<<endl;
@@ -185,6 +185,7 @@ void Jogo:: desenharPalavra(){
     for(unsigned i=0; i<letrasErradas.size();i++)
         cout<<" "<<letrasErradas.at(i);
     cout<<endl;
+    cout<<"Dica: "<<palavra.getDica()<<endl;
 }
 
 bool Jogo:: verificarJogada(char letra){
