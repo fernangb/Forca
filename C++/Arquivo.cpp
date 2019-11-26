@@ -11,15 +11,66 @@ void  Arquivo::verificarArquivoAberto () {
 	}
 }
 
+// void  Arquivo::lerPalavrasProVector () {
+// 	string linhaArquivo; //string que recebe a linha inteira do arquivo
+// 	unsigned linha = 0;
+//     string sNome;
+//     string sDica;
+// 	string sDificuldade;
+// 	unsigned i;	
+	
+// 	arquivo.open (nomeArquivo, fstream::in | fstream::out | fstream::app);
+// 	verificarArquivoAberto ();
+// 	while ((!arquivo.eof () )) {
+// 		getline (arquivo, linhaArquivo);
+
+// 		for(i=0;i<linhaArquivo.size();i++){
+// 			if(linhaArquivo[i] !=' '){
+// 				sNome = sNome + linhaArquivo[i];
+// 			}else{
+// 				break;
+// 			}
+// 		}
+
+// 		for(;i<linhaArquivo.size();i++){
+// 			if(linhaArquivo[i] !=' '){
+// 				sDica = sDica + linhaArquivo[i];
+// 			}else{
+// 				break;
+// 			}
+// 		}
+
+// 		for(;i<linhaArquivo.size();i++){
+// 			if(linhaArquivo[i] !=' '){
+// 				sDificuldade = sDificuldade + linhaArquivo[i];
+// 			}else{
+// 				break;
+// 			}
+// 		}
+// 		Palavra p(sNome, sDica);
+// 		palavra.push_back (p);
+// 		linha++;
+
+// // 			if (caracteres != 0) {
+// // 				palavra.push_back (p);
+// 	}
+// }
+
+// void  Arquivo::escreverPalavra(string nome, string dica, string dificuldade){
+//    	arquivo.open (nomeArquivo.c_str(), fstream::in | fstream::out | fstream::app);
+// 	verificarArquivoAberto (); 
+// 	arquivo <<nome <<" "<< dica<<" "<<dificuldade<<endl;
+//     arquivo.close();
+// }
+
+
 void  Arquivo::lerPalavrasProVector () {
-	//abre o arquivo texto
 
 	string linhaArquivo; //string que recebe a linha inteira do arquivo
 	unsigned linha = 0;
-	string sId; //string do codigo, que sera convertido em int
     string sNome;
     string sDica;
-	//int id;
+	string sDificuldade;
 
 	arquivo.open (nomeArquivo, fstream::in | fstream::out | fstream::app);
 	verificarArquivoAberto ();
@@ -38,8 +89,12 @@ void  Arquivo::lerPalavrasProVector () {
 			if (linhaArquivo.size() >= 5) {
 				sNome = linhaArquivo.substr (0, 20);  
 				sNome.erase(remove(sNome.begin(), sNome.end(), ' '), sNome.end());
-				sDica = linhaArquivo.substr (20, linhaArquivo.size());  
+				sDica = linhaArquivo.substr (20, 20);//linhaArquivo.size());  
 				sDica.erase(remove(sDica.begin(), sDica.end(), ' '), sDica.end());
+				sDificuldade = linhaArquivo.substr (40,20);// linhaArquivo.size());  
+				sDificuldade.erase(remove(sDificuldade.begin(), sDificuldade.end(), ' '), sDificuldade.end());
+
+				cout<<sNome<<" "<<sDica<<" "<<sDificuldade<<endl;
 			}
 			Palavra p(sNome, sDica);
 
@@ -54,13 +109,12 @@ void  Arquivo::lerPalavrasProVector () {
 	}
 
 	arquivo.close ();
-
 }
 
 void  Arquivo::escreverPalavra(string nome, string dica, string dificuldade){
    	arquivo.open (nomeArquivo.c_str(), fstream::in | fstream::out | fstream::app);
 	verificarArquivoAberto (); 
-	arquivo <<setw(20) << nome << setw(20) << dica<<endl;//<<setw(20)<<dificuldade<<endl;
+	arquivo <<setw(20) << nome << setw(20) << dica<<setw(20)<<dificuldade<<endl;
     arquivo.close();
 }
 

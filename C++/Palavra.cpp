@@ -8,13 +8,7 @@ using namespace std;
 Palavra::Palavra(string p, string d ){
     nome = p;
     dica = d;
-    // for(unsigned i=0; i<p.size();i++)
-    //     nome[i] = toupper(p[i]);
-    // for(unsigned i=0; i<p.size();i++)
-    //     dica[i] = toupper(d[i]);
-
     numLetras = p.size();
-    // codigo = id;
     numLetrasDiferentes = calcularLetrasDiferentes();
     dificuldade = calcularDificuldade();
 }
@@ -70,7 +64,13 @@ unsigned Palavra:: calcularLetrasDiferentes(){
 
 
 string Palavra:: calcularDificuldade(){
-    int valor = numLetras*numLetrasDiferentes;
+    unsigned vogais=0;
+
+    for(unsigned i=0; i<numLetras; i++)
+        if(nome[i] == 'A' || nome[i] == 'E' || nome[i] == 'I' || nome[i] == 'O' || nome[i] == 'U' )
+            vogais++;
+
+    int valor = (numLetras*(numLetrasDiferentes+1)) - vogais;
     
     if(valor<=FACIL)
         return "FACIL";
@@ -79,19 +79,4 @@ string Palavra:: calcularDificuldade(){
         return "MEDIO";
 
     return "DIFICIL";
-}
-
-bool Palavra:: VerificarPalavra(){
-    string alfabeto = {"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"};
-    bool existeLetra;
-    bool existePalavra = true;
-
-    for(unsigned i=0; i<numLetras;i++){
-        existeLetra = false;
-        for(unsigned j=0; j<alfabeto.size(); j++)
-            if(nome[i] == alfabeto[j])
-                existeLetra = true;
-        existePalavra = existePalavra && existeLetra;
-    }
-    return existePalavra;
 }

@@ -1,34 +1,144 @@
-            MELANCIA               FRUTA
-            FLAMENGO                TIME
-             GABRIEL                NOME
-              MIGUEL                NOME
-              BRASIL                PAIS
-           ARGENTINA                PAIS
-             URUGUAI                PAIS
-              BANANA               FRUTA
-                 UVA               FRUTA
-         CORINTHIANS                TIME
-           PALMEIRAS                TIME
-              SANTOS                TIME
-             LARANJA               FRUTA
-                AZUL                 COR
-            VERMELHO                 COR
-             AMARELO                 COR
-             MORANGO               FRUTA
-            MARACUJA               FRUTA
-              BIANCA                NOME
-              ARTHUR                NOME
-               JORGE                NOME
-               VASCO                TIME
-            CACHORRO              ANIMAL
-                GATO              ANIMAL
-        ORNITORRINCO              ANIMAL
-              CAMELO              ANIMAL
-          DROMEDARIO              ANIMAL
-              ARANHA              ANIMAL
-              MARROM                 COR
-              ALFACE             VERDURA
-              CHUCHU              LEGUME
-             CENOURA              LEGUME
-              BATATA              LEGUME
-               TOURO              ANIMAL
+             ACEROLA               FRUTA               MEDIO
+               AMORA               FRUTA               FACIL
+             ABACAXI               FRUTA               MEDIO
+             ABACATE               FRUTA               MEDIO
+              BANANA               FRUTA               FACIL
+                CAJU               FRUTA               FACIL
+               CACAU               FRUTA               FACIL
+           CARAMBOLA               FRUTA             DIFICIL
+              CEREJA               FRUTA               MEDIO
+                COCO               FRUTA               FACIL
+           FRAMBOESA               FRUTA             DIFICIL
+              GOIABA               FRUTA               MEDIO
+            GROSELHA               FRUTA             DIFICIL
+          JABUTICABA               FRUTA             DIFICIL
+                JACA               FRUTA               FACIL
+             LARANJA               FRUTA               MEDIO
+               LIMAO               FRUTA               FACIL
+               MANGA               FRUTA               FACIL
+            MARACUJA               FRUTA               MEDIO
+            MELANCIA               FRUTA               MEDIO
+               MELAO               FRUTA               FACIL
+             MORANGO               FRUTA               MEDIO
+                PERA               FRUTA               FACIL
+             PESSEGO               FRUTA               MEDIO
+           TAMARINDO               FRUTA             DIFICIL
+           TANGERINA               FRUTA             DIFICIL
+                 UVA               FRUTA               FACIL
+             AMARELO                 COR               MEDIO
+                AZUL                 COR               FACIL
+              BRANCO                 COR               MEDIO
+             DOURADO                 COR               MEDIO
+             MAGENTA                 COR               MEDIO
+              MARROM                 COR               FACIL
+               PRETO                 COR               FACIL
+                ROSA                 COR               FACIL
+                ROXO                 COR               FACIL
+               VERDE                 COR               FACIL
+            VERMELHO                 COR             DIFICIL
+             VIOLETA                 COR               MEDIO
+              ABELHA              ANIMAL               MEDIO
+               AGUIA              ANIMAL               FACIL
+           ANDORINHA              ANIMAL             DIFICIL
+                ANTA              ANIMAL               FACIL
+              ARANHA              ANIMAL               FACIL
+            AVESTRUZ              ANIMAL             DIFICIL
+              BALEIA              ANIMAL               MEDIO
+              BARATA              ANIMAL               FACIL
+                 BOI              ANIMAL               FACIL
+           BORBOLETA              ANIMAL             DIFICIL
+               BURRO              ANIMAL               FACIL
+               CABRA              ANIMAL               FACIL
+             CANGURU              ANIMAL               MEDIO
+             CARACOL              ANIMAL               MEDIO
+          CARANGUEJO              ANIMAL             DIFICIL
+            CARNEIRO              ANIMAL               MEDIO
+              CAVALO              ANIMAL               MEDIO
+               COBRA              ANIMAL               FACIL
+              COELHO              ANIMAL               MEDIO
+              CORUJA              ANIMAL               MEDIO
+           CROCODILO              ANIMAL               MEDIO
+            ELEFANTE              ANIMAL               MEDIO
+             ESQUILO              ANIMAL               MEDIO
+                FOCA              ANIMAL               FACIL
+             FORMIGA              ANIMAL               MEDIO
+                GATO              ANIMAL               FACIL
+              GIRAFA              ANIMAL               MEDIO
+            GOLFINHO              ANIMAL             DIFICIL
+               HIENA              ANIMAL               FACIL
+          HIPOPOTAMO              ANIMAL             DIFICIL
+              IGUANA              ANIMAL               MEDIO
+              JACARE              ANIMAL               MEDIO
+              JAGUAR              ANIMAL               MEDIO
+              JAVALI              ANIMAL               MEDIO
+             LAGOSTA              ANIMAL               MEDIO
+                LEAO              ANIMAL               FACIL
+            LEOPARDO              ANIMAL               MEDIO
+               LHAMA              ANIMAL               FACIL
+                LOBO              ANIMAL               FACIL
+              MACACO              ANIMAL               FACIL
+             MORCEGO              ANIMAL               MEDIO
+               OSTRA              ANIMAL               FACIL
+        ORNITORRINCO              ANIMAL             DIFICIL
+               PANDA              ANIMAL               FACIL
+             PANTERA              ANIMAL               MEDIO
+                PATO              ANIMAL               FACIL
+            PELICANO              ANIMAL             DIFICIL
+               PORCO              ANIMAL               FACIL
+                RATO              ANIMAL               FACIL
+         RINOCERONTE              ANIMAL             DIFICIL
+          SALAMANDRA              ANIMAL             DIFICIL
+           TARTARUGA              ANIMAL               MEDIO
+                TATU              ANIMAL               FACIL
+               TIGRE              ANIMAL               FACIL
+             TUBARAO              ANIMAL               MEDIO
+                URSO              ANIMAL               FACIL
+               ZEBRA              ANIMAL               FACIL
+            ALEMANHA                PAIS               MEDIO
+              ANGOLA                PAIS               MEDIO
+           ARGENTINA                PAIS             DIFICIL
+           AUSTRALIA                PAIS             DIFICIL
+          BANGLADESH                PAIS             DIFICIL
+             BELGICA                PAIS               MEDIO
+              BRASIL                PAIS               MEDIO
+             BOLIVIA                PAIS               MEDIO
+            BULGARIA                PAIS               MEDIO
+              CANADA                PAIS               FACIL
+               CHINA                PAIS               FACIL
+               CHILE                PAIS               FACIL
+             CROACIA                PAIS               MEDIO
+           DINAMARCA                PAIS             DIFICIL
+               EGITO                PAIS               FACIL
+             ESPANHA                PAIS               MEDIO
+          ESLOVAQUIA                PAIS             DIFICIL
+           ESLOVENIA                PAIS             DIFICIL
+           FINLANDIA                PAIS               MEDIO
+              FRANCA                PAIS               MEDIO
+           GUATEMALA                PAIS             DIFICIL
+            HONDURAS                PAIS             DIFICIL
+               HAITI                PAIS               FACIL
+               INDIA                PAIS               FACIL
+           INDONESIA                PAIS             DIFICIL
+              ITALIA                   2               FACIL
+             JAMAICA                PAIS               MEDIO
+               JAPAO                PAIS               FACIL
+          LUXEMBURGO                PAIS             DIFICIL
+       LIECHTENSTEIN                PAIS             DIFICIL
+          MADAGASCAR                PAIS             DIFICIL
+            MARROCOS                PAIS               MEDIO
+          MONTENEGRO                PAIS             DIFICIL
+           NICARAGUA                PAIS             DIFICIL
+             HOLANDA                PAIS               MEDIO
+            PARAGUAI                PAIS               MEDIO
+                PERU                PAIS               FACIL
+             POLONIA                PAIS               MEDIO
+          INGLATERRA                PAIS             DIFICIL
+              RUSSIA                PAIS               MEDIO
+             SENEGAL                PAIS               MEDIO
+               SUICA                PAIS               FACIL
+              SUECIA                PAIS               MEDIO
+              GRECIA                PAIS               MEDIO
+             TURQUIA                PAIS               MEDIO
+             UCRANIA                PAIS               MEDIO
+             URUGUAI                PAIS               MEDIO
+           VENEZUELA                PAIS             DIFICIL

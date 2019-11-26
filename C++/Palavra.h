@@ -5,9 +5,9 @@
 #include <string>
 #include <vector>
 
-#define FACIL 40
-#define MEDIO 80
-#define DIFICIL 100
+#define FACIL 30
+#define MEDIO 60
+#define DIFICIL 90
 
 using namespace std;
 
@@ -21,7 +21,6 @@ class Palavra{
         unsigned getNumLetrasDiferentes();
         unsigned calcularLetrasDiferentes();
         string calcularDificuldade();
-        bool VerificarPalavra();
         int getCodigo();
         void setCodigo(int);
 

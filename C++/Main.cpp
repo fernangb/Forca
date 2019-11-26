@@ -48,7 +48,6 @@ int main(){
                     }
                 }while(dificuldade!='1' && dificuldade!='2' && dificuldade!='3');
                 
-
                 Jogador jogador(nomeJogador);
                 Arquivo file("Palavras");
                 file.lerPalavrasProVector();
@@ -95,16 +94,11 @@ int main(){
             }
                 break;
             case '3':{//ranking
+
                 Arquivo file("Pontuacoes");
                 file.lerJogadorProVector();
-                cout<<file.jogador.size()<<endl;
+                file.rankearJogadores();
 
-                for(unsigned i=0; i< file.jogador.size(); i++)
-                    cout<<file.jogador.at(i).getNome()<<" "<<file.jogador.at(i).getPontos()<<endl;
-
-                cout<<"Tecla + enter"<<endl;
-                cin>>dificuldade;
-                //file.rankearJogadores();
 
             }        
                 break;
