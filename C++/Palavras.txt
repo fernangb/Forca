@@ -31,3 +31,4 @@
               CHUCHU              LEGUME
              CENOURA              LEGUME
               BATATA              LEGUME
+               TOURO              ANIMAL

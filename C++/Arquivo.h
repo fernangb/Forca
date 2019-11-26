@@ -23,17 +23,13 @@ using namespace std;
 class Arquivo{
     public:
         Arquivo(string);
-        void lerPalavras();
         void escreverPalavra(string, string, string);
         void escreverJogada(string, int);
         void verificarArquivoAberto();
-        void iniciarPalavras();
-        void iniciarJogada();
-        void lerLinhasArquivo();
-        void mostrarVectorPalavras();
-        string encontrarPalavra(string);
-        int limparArquivo();
-        // Palavra palavraEscolhida;   
+        void lerPalavrasProVector();
+        void lerJogadorProVector();
+        void rankearJogadores();
+        //static bool compararJogadores(Jogador &, Jogador &);
 
         vector <Palavra> palavra;
         vector <Jogador> jogador;
@@ -41,6 +37,4 @@ class Arquivo{
     private:
         string nomeArquivo;
         fstream arquivo;
-        // Palavra palavraEscolhida;   
-
 };

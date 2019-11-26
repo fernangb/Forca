@@ -17,7 +17,6 @@ Jogo::Jogo(Jogador j, Palavra p): jogador(j.getNome()), palavra(p.getNome(), p.g
     rodada = 1;
     acertosSeguidos = 0;
     maxAcertosSeguidos = 0;
-   // jogada("Pontuacoes");
 }
 
 unsigned Jogo:: getNumVidas(){
@@ -56,6 +55,7 @@ void Jogo:: jogar(){
     char letra;
     bool continua = true;
     bool acertei = false;
+    char sair;
 
     while (continua){
  
@@ -109,18 +109,15 @@ void Jogo:: jogar(){
     calcularPontuacaoFinal(acertei);
     cout<<"Sua pontuacao final foi: "<<jogador.getPontos()<<endl;
 
-    // Arquivo arquivo("Pontuacoes");
-    // arquivo.iniciarJogada();
-    // arquivo.escreverJogada(jogador.getNome(), jogador.getPontos());
-        //jogada("Pontuacoes");
-        //jogada.iniciarJogada();
-        //jogada.escreverJogada("GABRIEL", 1000);
         Arquivo file("Pontuacoes");
-        file.iniciarJogada();
+        file.lerPalavrasProVector();
         Jogador j(jogador.getNome());
         j.setPontos(jogador.getPontos());
         file.jogador.push_back(j);
         file.escreverJogada(jogador.getNome(),jogador.getPontos());
+
+    cout<<"Digite qualquer tecla e depois ENTER para voltar ao menu inicial ..."<<endl;
+    cin>>sair;
 }
 
 bool Jogo:: verificarLetraRepetida(char letra){
@@ -144,6 +141,7 @@ void Jogo:: montarTela(){
     cout<<"Pontos:  "<<jogador.getPontos()<<endl;
     cout<<"Vidas:  "<<getNumVidas()<<endl;
     cout<<"Rodada: "<<getRodada()<<endl;
+    cout<<"Dificuldade: "<<palavra.getDificuldade()<<endl;
 
     desenharForca(numVidas);
     desenharPalavra();

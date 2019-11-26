@@ -1,3 +1,4 @@
-             gabriel                 100
-                cida                 200
-              misael                 300
+             Gabriel                 770
+                Cida                 130
+              Misael                 150
+             Gabriel                  60
