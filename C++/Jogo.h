@@ -7,6 +7,7 @@
 
 #include "Jogador.h"
 #include "Palavra.h"
+//#include "Arquivo.h"
 
 #define MAX_VIDAS 6
 #define NUM_PONTOS_ACERTO 10
@@ -32,16 +33,19 @@ class Jogo{
         void jogar();
         bool verificarLetraRepetida(char);
         void calcularPontuacaoFinal(bool);
+
+        Jogador jogador;
         
     private:
         unsigned numVidas;
-        Jogador jogador;
+        //Jogador jogador;
         Palavra palavra;
         vector <char> letrasErradas;
         vector <char> letrasCertas;
         unsigned rodada;
         unsigned acertosSeguidos;
         unsigned maxAcertosSeguidos;
+       // Arquivo jogada;
 
 
 

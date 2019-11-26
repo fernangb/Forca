@@ -16,6 +16,7 @@
 #include <vector>
 
 #include "Palavra.h"
+#include "Jogador.h"
 
 using namespace std;
 
@@ -24,8 +25,10 @@ class Arquivo{
         Arquivo(string);
         void lerPalavras();
         void escreverPalavra(string, string, string);
+        void escreverJogada(string, int);
         void verificarArquivoAberto();
         void iniciarPalavras();
+        void iniciarJogada();
         void lerLinhasArquivo();
         void mostrarVectorPalavras();
         string encontrarPalavra(string);
@@ -33,6 +36,8 @@ class Arquivo{
         // Palavra palavraEscolhida;   
 
         vector <Palavra> palavra;
+        vector <Jogador> jogador;
+
     private:
         string nomeArquivo;
         fstream arquivo;
