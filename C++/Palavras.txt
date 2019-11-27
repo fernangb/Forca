@@ -142,3 +142,9 @@
              UCRANIA                PAIS               MEDIO
              URUGUAI                PAIS               MEDIO
            VENEZUELA                PAIS             DIFICIL
+            FLAMENGO                TIME             DIFICIL
+           PALMEIRAS                TIME             DIFICIL
+              SANTOS                TIME               MEDIO
+               VASCO                TIME               FACIL
+          FLUMINENSE                TIME             DIFICIL
+            BOTAFOGO                TIME               MEDIO

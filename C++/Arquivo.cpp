@@ -11,59 +11,6 @@ void  Arquivo::verificarArquivoAberto () {
 	}
 }
 
-// void  Arquivo::lerPalavrasProVector () {
-// 	string linhaArquivo; //string que recebe a linha inteira do arquivo
-// 	unsigned linha = 0;
-//     string sNome;
-//     string sDica;
-// 	string sDificuldade;
-// 	unsigned i;	
-	
-// 	arquivo.open (nomeArquivo, fstream::in | fstream::out | fstream::app);
-// 	verificarArquivoAberto ();
-// 	while ((!arquivo.eof () )) {
-// 		getline (arquivo, linhaArquivo);
-
-// 		for(i=0;i<linhaArquivo.size();i++){
-// 			if(linhaArquivo[i] !=' '){
-// 				sNome = sNome + linhaArquivo[i];
-// 			}else{
-// 				break;
-// 			}
-// 		}
-
-// 		for(;i<linhaArquivo.size();i++){
-// 			if(linhaArquivo[i] !=' '){
-// 				sDica = sDica + linhaArquivo[i];
-// 			}else{
-// 				break;
-// 			}
-// 		}
-
-// 		for(;i<linhaArquivo.size();i++){
-// 			if(linhaArquivo[i] !=' '){
-// 				sDificuldade = sDificuldade + linhaArquivo[i];
-// 			}else{
-// 				break;
-// 			}
-// 		}
-// 		Palavra p(sNome, sDica);
-// 		palavra.push_back (p);
-// 		linha++;
-
-// // 			if (caracteres != 0) {
-// // 				palavra.push_back (p);
-// 	}
-// }
-
-// void  Arquivo::escreverPalavra(string nome, string dica, string dificuldade){
-//    	arquivo.open (nomeArquivo.c_str(), fstream::in | fstream::out | fstream::app);
-// 	verificarArquivoAberto (); 
-// 	arquivo <<nome <<" "<< dica<<" "<<dificuldade<<endl;
-//     arquivo.close();
-// }
-
-
 void  Arquivo::lerPalavrasProVector () {
 
 	string linhaArquivo; //string que recebe a linha inteira do arquivo
@@ -75,12 +22,11 @@ void  Arquivo::lerPalavrasProVector () {
 	arquivo.open (nomeArquivo, fstream::in | fstream::out | fstream::app);
 	verificarArquivoAberto ();
 
-	while ((!arquivo.eof () )) {
+	while (getline (arquivo, linhaArquivo)) {
 
 		unsigned caracteres = 0;
-		getline (arquivo, linhaArquivo);
 
-		if (linha > 0) { //verifica se o arquivo esta vazio para não haver erros (segmental fault), lembrando que ele ignora
+		if (linha >= 0) { //verifica se o arquivo esta vazio para não haver erros (segmental fault), lembrando que ele ignora
 
 			for (unsigned x = 0; x < linhaArquivo.size (); x++) {
 					caracteres++; //serve para verificar se a linha está vazia, pois se estiver o objeto user não é adicionado ao vetor
@@ -93,8 +39,6 @@ void  Arquivo::lerPalavrasProVector () {
 				sDica.erase(remove(sDica.begin(), sDica.end(), ' '), sDica.end());
 				sDificuldade = linhaArquivo.substr (40,20);// linhaArquivo.size());  
 				sDificuldade.erase(remove(sDificuldade.begin(), sDificuldade.end(), ' '), sDificuldade.end());
-
-				cout<<sNome<<" "<<sDica<<" "<<sDificuldade<<endl;
 			}
 			Palavra p(sNome, sDica);
 
@@ -140,11 +84,10 @@ void  Arquivo::lerJogadorProVector () {
 	arquivo.open (nomeArquivo, fstream::in | fstream::out | fstream::app);
 	verificarArquivoAberto();
 
-	while (!(arquivo.eof() - 1)) {
+	while (getline (arquivo, linhaArquivo)) {
 		unsigned caracteres = 0;
-		getline (arquivo, linhaArquivo);
 
-		if (linha > 0) { //verifica se o arquivo esta vazio para não haver erros (segmental fault), lembrando que ele ignora
+		if (linha >= 0) { //verifica se o arquivo esta vazio para não haver erros (segmental fault), lembrando que ele ignora
 
 			for (unsigned x = 0; x < linhaArquivo.size (); x++) {
 					caracteres++; //serve para verificar se a linha está vazia, pois se estiver o objeto user não é adicionado ao vetor
@@ -156,8 +99,6 @@ void  Arquivo::lerJogadorProVector () {
 			sPontos.erase(remove(sPontos.begin(), sPontos.end(), ' '), sPontos.end());
 			pontos = atoi(sPontos.c_str());
 
-			//cout<<sNome<<" "<<pontos<<endl;
-
 			Jogador j(sNome);
 			j.setPontos(pontos);
 
@@ -168,6 +109,7 @@ void  Arquivo::lerJogadorProVector () {
 		linha++;
 	}
 	arquivo.close ();
+
 }
 
 void Arquivo:: rankearJogadores(){
@@ -176,7 +118,7 @@ void Arquivo:: rankearJogadores(){
 
 	for(unsigned i = 0; i<jogador.size();i++){
 		for(unsigned j = 0; j<jogador.size();j++){
-			if(jogador.at(j).getPontos() > jogador.at(j).getPontos()){
+			if(jogador.at(i).getPontos() > jogador.at(j).getPontos()){
 				Jogador aux = jogador.at(i);
 				jogador.at(i) = jogador.at(j);
 				jogador.at(j) = aux;
@@ -186,28 +128,20 @@ void Arquivo:: rankearJogadores(){
 		}
 	}
 
-	cout<<"Posicao"<<setw(5)<<"Jogador"<<setw(15)<<"Pontos"<<endl;
-	for(unsigned i=0; i< jogador.size(); i++)
-		cout<< i+1 <<setw(5)<<jogador.at(i).getNome()<<setw(15)<<jogador.at(i).getPontos()<<endl;
+	cout<<"POS"<<setw(20)<<"JOGADOR"<<setw(20)<<"PONTOS"<<endl;
+	cout<<"==================================================="<<endl;
+	for(unsigned i=0; i< jogador.size(); i++){
+		if(i<9){
+			cout<< "00"<<i+1 <<setw(20)<<jogador.at(i).getNome()<<setw(20)<<jogador.at(i).getPontos()<<endl;
+		}else if(i<99){
+			cout<<"0"<<i+1 <<setw(20)<<jogador.at(i).getNome()<<setw(20)<<jogador.at(i).getPontos()<<endl;
+		}else{
+			cout<< i+1 <<setw(20)<<jogador.at(i).getNome()<<setw(20)<<jogador.at(i).getPontos()<<endl;
 
+		}
+	}
     cout<<"Digite qualquer tecla e depois ENTER para voltar ao menu inicial ..."<<endl;
     cin>>sair;
 
 }
 
-
-/*
-    for (int i = 0; i < jogadores.size(); i++) {
-        for (int j = 0; j < jogadores.size(); j++) {
-            if (jogadores[j]->getExperiencia() < jogadores[i]->getExperiencia()) {
-                Jogador *temp = jogadores[i];
-                jogadores[i] = jogadores[j];
-                jogadores[j] = temp;
-            }
-        }
-    }
-*/
-
-// static bool Arquivo:: compararJogadores(Jogador &a, Jogador &b){
-// 	return a.getPontos() < b.getPontos();
-// }

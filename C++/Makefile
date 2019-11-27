@@ -11,7 +11,7 @@ all: main
 .cpp.o:
 	$(CPP) $(CPPFLAGS) -o $@ -c $<
 
-main: Main.o Jogo.o Jogador.o Palavra.o Arquivo.o #arquivo.o #perl_cpp.o
+main: Main.o Jogo.o Arquivo.o Jogador.o Palavra.o #perl_cpp.o
 	$(LD) -o $@ $? $(LDFLAGS)
 
 clean:

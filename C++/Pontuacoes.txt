@@ -5,3 +5,6 @@
              Gabriel                  65
              Gabriel                 200
              Gabriel                 860
+             Gabriel                 285
+             Gabriel                  20
+             Gabriel                 725

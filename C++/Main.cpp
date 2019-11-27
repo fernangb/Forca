@@ -98,8 +98,6 @@ int main(){
                 Arquivo file("Pontuacoes");
                 file.lerJogadorProVector();
                 file.rankearJogadores();
-
-
             }        
                 break;
             case '0':
