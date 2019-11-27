@@ -2,8 +2,8 @@ CPP = g++
 CPPFLAGS = -Wall -std=c++11 -I/usr/lib/x86_64-linux-gnu/perl/5.26.1/CORE/
 #CPPFLAGS = $(shell -I/usr/lib/x86_64-linux-gnu/perl/5.26/CORE/)
 LD = g++
-#LDLIBS = -I//Documents/LingProg/Trabalho/Forca/C++ LingProg - GabrielFernandes/modulo.pm
-LDFLAGS = -lm #-lperl #-lm
+#LDLIBS = -I//Documents/LingProg/Trabalho/Forca/C++ LingProg - GabrielFernandes/modulo.pl
+LDFLAGS = -lm -lperl #-lm
 #LDFLAGS = $(shell -lperl -lm)
 
 all: main
@@ -11,7 +11,7 @@ all: main
 .cpp.o:
 	$(CPP) $(CPPFLAGS) -o $@ -c $<
 
-main: Main.o Jogo.o Arquivo.o Jogador.o Palavra.o #perl_cpp.o
+main: Main.o Jogo.o Arquivo.o Jogador.o Palavra.o PerlParaCpp.o
 	$(LD) -o $@ $? $(LDFLAGS)
 
 clean:

@@ -33,7 +33,7 @@ int main(){
         switch(opcao){
             case '1':{ //jogar
                 system("clear");
-                cout<<"Digite o seu nome"<<endl;
+                cout<<"Digite o seu nome: "<<endl;
                 cin>>nomeJogador;
                 do{
 

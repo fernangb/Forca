@@ -141,7 +141,7 @@ void Jogo:: montarTela(){
     cout<<"Pontos:  "<<jogador.getPontos()<<endl;
     cout<<"Vidas:  "<<getNumVidas()<<endl;
     cout<<"Rodada: "<<getRodada()<<endl;
-    cout<<"Numero de Letras"<<palavra.getNumLetras()<<endl;
+    cout<<"Numero de Letras: "<<palavra.getNumLetras()<<endl;
     cout<<"Dificuldade: "<<palavra.getDificuldade()<<endl;
 
     desenharForca(numVidas);
